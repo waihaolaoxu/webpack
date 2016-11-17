@@ -18,7 +18,12 @@ var webpackConfig={
 		}]
 	},
 	plugins: [
-		new webpack.BannerPlugin('This file is created by xusl')
+		new webpack.BannerPlugin(new Date()+' By 前端老徐'), //添加注释插件
+		new webpack.optimize.UglifyJsPlugin({ //压缩插件
+			compress: {
+			    warnings: false
+			}
+		})
 	]
 }
 gulp.task("webpack", function(callback) {
@@ -54,7 +59,7 @@ gulp.task('default', function() {
 	console.log(' | 老徐的前端自动化部署工具');
 	console.log(' | BLOG：www.loveqiao.com');
 	console.log(' | GIT ：github.com/waihaolaoxu/gulp.git');
-	console.log(' | 集成：sass编译、混淆压缩、合并文件、webpack为一体的超级工具');
+	//console.log(' | 集成：sass编译、混淆压缩、合并文件、webpack为一体的超级工具');
 	console.log(' | ');
 	console.log(' | 参考资料：');
 	console.log(' | webpack.github.io 、www.gulpjs.com.cn');
