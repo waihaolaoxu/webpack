@@ -2,14 +2,17 @@
 var gulp = require('gulp');
 var gutil = require("gulp-util");
 var webpack = require("webpack");
+var path = require("path");
 var WebpackDevServer = require("webpack-dev-server");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 //正常编译
 var webpackConfig={
 	entry: './src/entry.js',
 	output: {
-		path: __dirname,
-		filename: './js/bundle.js'
+		path: path.join(__dirname, "dist"),
+		filename: 'bundle.js',
+		chunkFilename:'[id].js'
 	},
 	module: {
 		loaders: [{
@@ -18,12 +21,20 @@ var webpackConfig={
 		}]
 	},
 	plugins: [
-		new webpack.BannerPlugin(new Date()+' By 前端老徐'), //添加注释插件
-		new webpack.optimize.UglifyJsPlugin({ //压缩插件
-			compress: {
-			    warnings: false
-			}
+		//添加注释插件
+		new webpack.BannerPlugin(new Date()+' By 前端老徐'),
+		//自动注入打包后的资源
+		new HtmlWebpackPlugin({
+			title: 'laoxu App',
+			filename: 'dist.html',
+			template: 'src/index.html'
 		})
+		// , 
+		// new webpack.optimize.UglifyJsPlugin({ //压缩插件
+		// 	compress: {
+		// 	    warnings: false
+		// 	}
+		// })
 	]
 }
 gulp.task("webpack", function(callback) {

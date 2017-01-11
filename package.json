@@ -1,0 +1,30 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "gulp集成webpack",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
+    "html-webpack-plugin": "^2.26.0",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "style-loader": "^0.13.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waihaolaoxu/webpack.git"
+  },
+  "author": "qdlaoxu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waihaolaoxu/webpack/issues"
+  },
+  "homepage": "https://github.com/waihaolaoxu/webpack#readme"
+}
